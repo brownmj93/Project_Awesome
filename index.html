@@ -29,8 +29,7 @@
 </head>
 
 <body>
-
-    <div class="container-fluid">
+  <div class="container-fluid">
         <div class="row" id="firstRow">
             <div class="col-md-8">
                 <div class="page-header">
@@ -58,18 +57,9 @@
             </div>
         </div>
     </div>
-    <script>
-
-        //Save user input into an array
-        $("#searchBtn").on("click", function (event) {
-            event.preventDefault();
-            $("#searchParameter").empty();
-            var searchInput = $("#ingredients").val().trim();
-            console.log(searchInput);
-            $("#ingredients").val("");
-            $("#searchParameter").append("You searched for " + searchInput);
-        });
-
-    </script>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/app.js"></script>
+      
 </body>
 </html>
