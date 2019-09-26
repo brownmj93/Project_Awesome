@@ -1,29 +1,40 @@
 
 body {
     margin: 10px;
+    
 }
 
 #firstRow {
     margin-bottom: 10px;
-    border: 2px solid yellow;
+    border: 2px solid #F7B733;
+    background-color: #F7B733;
+    padding: 3px;
+    
 }
 
 .page-header {
-    border: 2px solid yellow;
+    font-family: 'Lato', sans-serif;
+    font-size: 100px;
 }
 
 #searchSection {
-    border: 2px solid blue;
+    border: 2px solid #c6c486;
+    background-color: #DFDEC3;
 }
 
 #displaySection {
-    border: 2px solid blue;
+    border: 2px solid #c6c486;
+    background-color: #DFDEC3;
 }
 
 #nutritionSection {
-    border: 2px solid blue;
+    border: 2px solid #c6c486;
+    background-color: #DFDEC3;
 }
 
 div {
     padding: 5px;
+}
+#searchBtn {
+    margin-top: 5px;
 }
