@@ -10,7 +10,7 @@
     $("#ingredients").val("");
     $("#searchParameter").append("You searched for " + searchInput);
 
-    var url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchInput}=&number=10&ranking=2&apiKey=bc2496f0cbc84ffea77af8212c502219`;
+    var url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchInput}=&number=20&ranking=2&apiKey=bc2496f0cbc84ffea77af8212c502219`;
  
     $.ajax({
   
@@ -67,7 +67,7 @@
 
           //instructions and equipment
           console.log("steps");
-      data.analyzedInstructions[0].steps.forEach(function(e, index){
+          data.analyzedInstructions[0].steps.forEach(function(e, index){
           console.log((index+1) + " " +e.step);
 
           data.analyzedInstructions[0].steps[0].equipment.forEach(function(e){      
@@ -76,6 +76,7 @@
             var newArray = new Set(equipment);
             equipmentArray = [...newArray];
           }); 
+          
         }); 
       }else{
         console.log("this recipe is missing instructions");
@@ -89,9 +90,7 @@
         
       });
      
-       
-        
-      
+
   });
 
 
