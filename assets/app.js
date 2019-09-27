@@ -29,7 +29,7 @@
 
 
   });
-v
+
   var food = "chicken, beef, eggs"
     
     
@@ -53,11 +53,11 @@ console.log('Calories: ', calories);
 var foodName = [];
 console.log('FoodName: ',foodName);
 var totalCarbs = [];
-console.log('FoodName: ',totalCarbs);
+console.log('Total Carbs: ',totalCarbs);
 var protein = [];
-console.log('FoodName: ',protein);
+console.log('Protein G: ',protein);
 var totalFat = [];
-console.log('FoodName: ',totalFat);
+console.log('Total Fat: ',totalFat);
 
 function foodList(results) {
 
