@@ -38,3 +38,6 @@ div {
 #searchBtn {
     margin-top: 5px;
 }
+#resultsRow {
+    height: 500px;
+}
