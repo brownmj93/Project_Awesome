@@ -9,7 +9,6 @@ var searchInput;
     $("#ingredients").val("");
     $("#searchParameter").append("You searched for " + searchInput);
 
-
     $("#backBtn").addClass('enable');
 
     //Calling APIs
@@ -40,7 +39,7 @@ var searchInput;
 
           //instructions and equipment
           console.log("steps");
-      data.analyzedInstructions[0].steps.forEach(function(e, index){
+          data.analyzedInstructions[0].steps.forEach(function(e, index){
           console.log((index+1) + " " +e.step);
 
           data.analyzedInstructions[0].steps[0].equipment.forEach(function(e){      
@@ -49,6 +48,7 @@ var searchInput;
             var newArray = new Set(equipment);
             equipmentArray = [...newArray];
           }); 
+          
         }); 
       }else{
         console.log("this recipe is missing instructions");
@@ -59,10 +59,6 @@ var searchInput;
           console.log(e.originalString);
               
          });
-        
-      });   
-       
-  });
 
 //Calls the API to get list of receipes
 function getReceipe() {
