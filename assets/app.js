@@ -115,16 +115,17 @@ function nutrition() {
     "data": `{\r\n \"query\":\"${searchInput}\",\r\n \"timezone\": \"US/Eastern\"\r\n}`
   }
 
-  var calories = [];
-  console.log('Calories: ', calories);
-  var foodName = [];
-  console.log('FoodName: ', foodName);
-  var totalCarbs = [];
-  console.log('FoodName: ', totalCarbs);
-  var protein = [];
-  console.log('FoodName: ', protein);
-  var totalFat = [];
-  console.log('FoodName: ', totalFat);
+var calories = [];
+console.log('Calories: ', calories);
+var foodName = [];
+console.log('FoodName: ',foodName);
+var totalCarbs = [];
+console.log('Total Carbs: ',totalCarbs);
+var protein = [];
+console.log('Protein G: ',protein);
+var totalFat = [];
+console.log('Total Fat: ',totalFat);
+
 
   function foodList(results) {
 
