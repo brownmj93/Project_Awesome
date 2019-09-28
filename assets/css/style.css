@@ -1,5 +1,10 @@
 
 body {
+    
+    background-image: url("../images/backgroundImg.jpg");
+    background-size: auto;
+    opacity: .9;
+    
     margin: 10px;
     
 }
@@ -25,8 +30,17 @@ body {
 #displaySection {
     border: 2px solid #c6c486;
     background-color: #DFDEC3;
+    
+    
 }
-
+h3:hover {
+    background-color: beige;
+    cursor: pointer;
+}
+img:hover {
+    background-color: beige;
+    cursor: pointer;
+}
 #nutritionSection {
     border: 2px solid #c6c486;
     background-color: #DFDEC3;

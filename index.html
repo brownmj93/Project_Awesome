@@ -54,7 +54,7 @@
                             id="ingredients">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
                             id="searchBtn">Search</button>
-                            
+
                     </form>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -67,13 +67,19 @@
 
                     <p id="searchParameter"></p>
                 </nav>
-                
+
             </div>
         </div>
+
+        <div class="alert alert-warning" role="alert" id="noInstruction">          
+            This recipe is missing instructions!
+            <a id="alertClose" href="#">&times;</a>
+        </div>
+
         <div class="row" id="resultsRow">
 
             <div class="col-md-8" id="displaySection">
-                Results
+
             </div>
             <div class="col-md-4" id="nutritionSection">
                 Nutrition Values
