@@ -1,29 +1,40 @@
 
 var searchInput;
 
+$(document).ready(function () {
+  $('#noInstruction').hide();
+});
+
+$('#alertClose').click(function () {
+  $('#noInstruction').hide('fade');
+});
+
 //Save user input into an array
 $("#searchBtn").on("click", function (event) {
+  $('#displaySection').empty();
   event.preventDefault();
   $("#searchParameter").empty();
   searchInput = $("#ingredients").val().trim();
   $("#ingredients").val("");
-  $("#searchParameter").append("You searched for " + searchInput);
+  //$("#searchParameter").append("You searched for " + searchInput);
 
-  $("#backBtn").addClass('enable');
+  $("#backBtn").removeClass('disabled');
 
   //Calling APIs
   getReceipe();
-  nutrition();
+  //nutrition();
 
 });
 
-
-//Display search results
+//Display receipe
 var equipment = [];
 var equipmentArray;
 
 $('#displaySection').on('click', 'div', function () {
   var id = $(this).data('id');
+  var title = $('<h2>');
+  title.text($(this).text());
+  console.log(title);
   var url = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=bc2496f0cbc84ffea77af8212c502219`
 
   $.ajax({
@@ -31,8 +42,27 @@ $('#displaySection').on('click', 'div', function () {
     method: "GET"
   }).then(function (data) {
 
+    // clear the container
+    $('#displaySection').empty();
+
     console.log(data);
     // console.log(data.analyzedInstructions[0].steps[0].);
+
+    //Display title
+    $('#displaySection').append(title);
+
+    //Display the ingredients to the page
+    data.extendedIngredients.forEach(function (e) {
+      console.log("ingredients");
+      console.log(e.originalString);
+
+      var ingredients = $('<h4>');
+      ingredients.text(e.originalString);
+      ingredients.appendTo('#displaySection');
+    });
+
+    //Add space between ingredients & instruction
+    $('#displaySection').append('<br>');
 
     //if statment to determine if this recipe has instructions
     if (data.analyzedInstructions.length > 0) {
@@ -41,6 +71,11 @@ $('#displaySection').on('click', 'div', function () {
       console.log("steps");
       data.analyzedInstructions[0].steps.forEach(function (e, index) {
         console.log((index + 1) + " " + e.step);
+
+        // Display instruction in the display section
+        var instruction = $('<p>');
+        instruction.text((index + 1) + " " + e.step);
+        instruction.appendTo('#displaySection');
 
         data.analyzedInstructions[0].steps[0].equipment.forEach(function (e) {
           //array and deleted duplicate array 
@@ -52,13 +87,11 @@ $('#displaySection').on('click', 'div', function () {
       });
     } else {
       console.log("this recipe is missing instructions");
-    }
-    //extended ingrdients
-    data.extendedIngredients.forEach(function (e) {
-      console.log("ingredients");
-      console.log(e.originalString);
 
-    });
+      //Alert missing instruction
+      $('#noInstruction').show('fade');
+
+    }
   });
 
 });
@@ -77,6 +110,9 @@ function getReceipe() {
     console.log("recipe Name: " + data[0].title);
     console.log('image: ' + data[0].image);
     console.log(data);
+    var result = $('<h2>');
+    result.text("Results for " + searchInput);
+    result.appendTo('#displaySection');
 
     data.forEach(myFunction);
 
@@ -91,7 +127,7 @@ function getReceipe() {
       div.attr('data-id', item.id);
       div.append(h3);
       //append images comment out
-      // div.append(img);
+      div.append(img);
       div.appendTo('#displaySection');
 
     }
