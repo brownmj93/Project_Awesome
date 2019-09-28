@@ -21,12 +21,18 @@ $("#searchBtn").on("click", function (event) {
   $("#backBtn").removeClass('disabled');
 
   //Calling APIs
-  getReceipe();
+  getrecipe();
   //nutrition();
 
 });
 
-//Display receipe
+//Back button
+$("#backBtn").on("click", function (event) {
+  console.log("btn works");
+  getrecipe();
+});
+
+//Display recipe
 var equipment = [];
 var equipmentArray;
 
@@ -96,9 +102,9 @@ $('#displaySection').on('click', 'div', function () {
 
 });
 
-//Calls the API to get list of receipes
-function getReceipe() {
-  var url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchInput}=&number=10&ranking=2&apiKey=bc2496f0cbc84ffea77af8212c502219`;
+//Calls the API to get list of recipes
+function getrecipe() {
+  var url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchInput}=&number=10&ranking=2&apiKey=151232fe2a814bb085ada1bc425abb72`;
 
   $.ajax({
 
@@ -121,13 +127,15 @@ function getReceipe() {
 
       var div = $('<div>');
       var h3 = $('<h3>');
-      var img = $('<img>');
+      var img = $("<img>");
       img.attr('src', item.image);
       h3.text(item.title);
       div.attr('data-id', item.id);
-      div.append(h3);
-      //append images comment out
+      div.addClass("eachRecipe");
+
+      //append images and recipe title
       div.append(img);
+      div.append(h3);
       div.appendTo('#displaySection');
 
     }
@@ -151,16 +159,16 @@ function nutrition() {
     "data": `{\r\n \"query\":\"${searchInput}\",\r\n \"timezone\": \"US/Eastern\"\r\n}`
   }
 
-var calories = [];
-console.log('Calories: ', calories);
-var foodName = [];
-console.log('FoodName: ',foodName);
-var totalCarbs = [];
-console.log('Total Carbs: ',totalCarbs);
-var protein = [];
-console.log('Protein G: ',protein);
-var totalFat = [];
-console.log('Total Fat: ',totalFat);
+  var calories = [];
+  console.log('Calories: ', calories);
+  var foodName = [];
+  console.log('FoodName: ', foodName);
+  var totalCarbs = [];
+  console.log('Total Carbs: ', totalCarbs);
+  var protein = [];
+  console.log('Protein G: ', protein);
+  var totalFat = [];
+  console.log('Total Fat: ', totalFat);
 
 
   function foodList(results) {
@@ -196,25 +204,25 @@ console.log('Total Fat: ',totalFat);
 
 
 
-//chartjs//
+  //chartjs//
 
-new Chart(document.getElementById("doughnut-chart"), {
-  type: 'doughnut',
-  data: {
+  new Chart(document.getElementById("doughnut-chart"), {
+    type: 'doughnut',
+    data: {
       labels: [],
       datasets: [{
-          label: "Calories by ingredient",
-          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-          data: []
+        label: "Calories by ingredient",
+        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+        data: []
       }]
-  },
-  options: {
+    },
+    options: {
       title: {
-          display: true,
-          text: 'Calories by ingredient'
+        display: true,
+        text: 'Calories by ingredient'
       }
-  }
-});
+    }
+  });
 
 }
 
