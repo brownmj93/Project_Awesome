@@ -198,7 +198,7 @@ console.log('Total Fat: ',totalFat);
 
 //chartjs//
 
-new Chart(document.getElementById("doughnut-chart"), {
+new Chart(document.getElementById("doughnut-chart-cals"), {
   type: 'doughnut',
   data: {
       labels: [],
@@ -212,6 +212,42 @@ new Chart(document.getElementById("doughnut-chart"), {
       title: {
           display: true,
           text: 'Calories by ingredient'
+      }
+  }
+});
+
+new Chart(document.getElementById("doughnut-chart-protein"), {
+  type: 'doughnut',
+  data: {
+      labels: [],
+      datasets: [{
+          label: "Protein by ingredient",
+          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+          data: []
+      }]
+  },
+  options: {
+      title: {
+          display: true,
+          text: 'Protein by ingredient'
+      }
+  }
+});
+
+new Chart(document.getElementById("doughnut-chart-carbs"), {
+  type: 'doughnut',
+  data: {
+      labels: [],
+      datasets: [{
+          label: "Carbs by ingredient",
+          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+          data: []
+      }]
+  },
+  options: {
+      title: {
+          display: true,
+          text: 'Carbs by ingredient'
       }
   }
 });
