@@ -21,8 +21,9 @@ $("#searchBtn").on("click", function (event) {
   $("#backBtn").removeClass('disabled');
 
   //Calling APIs
-  getrecipe();
-  //nutrition();
+  getReceipe();
+  nutrition();
+
 
 });
 
@@ -143,6 +144,17 @@ function getrecipe() {
   });
 }
 
+var calories = [];
+console.log('Calories: ', calories);
+var foodName = [];
+console.log('FoodName: ',foodName);
+var totalCarbs = [];
+console.log('Total Carbs: ',totalCarbs);
+var protein = [];
+console.log('Protein G: ',protein);
+var totalFat = [];
+console.log('Total Fat: ',totalFat);
+
 //Gets the nutrition values
 function nutrition() {
   var settings = {
@@ -158,18 +170,6 @@ function nutrition() {
     "processData": false,
     "data": `{\r\n \"query\":\"${searchInput}\",\r\n \"timezone\": \"US/Eastern\"\r\n}`
   }
-
-  var calories = [];
-  console.log('Calories: ', calories);
-  var foodName = [];
-  console.log('FoodName: ', foodName);
-  var totalCarbs = [];
-  console.log('Total Carbs: ', totalCarbs);
-  var protein = [];
-  console.log('Protein G: ', protein);
-  var totalFat = [];
-  console.log('Total Fat: ', totalFat);
-
 
   function foodList(results) {
 
@@ -202,18 +202,18 @@ function nutrition() {
     foodList(results);
   });
 
-
+}
 
   //chartjs//
 
-  new Chart(document.getElementById("doughnut-chart"), {
-    type: 'doughnut',
-    data: {
-      labels: [],
+new Chart(document.getElementById("doughnut-chart-cals"), {
+  type: 'doughnut',
+  data: {
+      labels: foodName,
       datasets: [{
-        label: "Calories by ingredient",
-        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
-        data: []
+          label: "Calories by ingredient",
+          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+          data: calories
       }]
     },
     options: {
@@ -224,5 +224,41 @@ function nutrition() {
     }
   });
 
-}
+new Chart(document.getElementById("doughnut-chart-protein"), {
+  type: 'doughnut',
+  data: {
+      labels: foodName,
+      datasets: [{
+          label: "Protein by ingredient",
+          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+          data: protein
+      }]
+  },
+  options: {
+      title: {
+          display: true,
+          text: 'Protein by ingredient'
+      }
+  }
+});
+
+new Chart(document.getElementById("doughnut-chart-carbs"), {
+  type: 'doughnut',
+  data: {
+      labels: foodName,
+      datasets: [{
+          label: "Carbs by ingredient",
+          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+          data: totalCarbs
+      }]
+  },
+  options: {
+      title: {
+          display: true,
+          text: 'Carbs by ingredient'
+      }
+  }
+});
+
+
 
