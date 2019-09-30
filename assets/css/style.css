@@ -1,8 +1,5 @@
-html {
-    /* height: 100%; */
-}
-body {
-    
+
+body {  
     background-image: url("../images/backgroundImg.jpg");
     background-size: auto;
     opacity: .9; 
@@ -15,7 +12,6 @@ body {
     border: 2px solid #F7B733;
     background-color: #F7B733;
     padding: 3px;
-    
 }
 
 .page-header {
