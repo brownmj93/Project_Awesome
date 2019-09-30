@@ -41,7 +41,7 @@ function checkInput() {
   else {
     console.log(searchInput);
     //Calling APIs
-    getrecipe();
+    getRecipe();
     nutrition();
   }
 };
@@ -55,7 +55,7 @@ $("#backBtn").on("click", function (event) {
 
   //Disable back to results button
   $("#backBtn").addClass('disabled');
-  getrecipe();
+  getRecipe();
 });
 
 //Display recipe instruction
@@ -128,7 +128,7 @@ $('#displaySection').on('click', 'div', function () {
 });
 
 //Calls the API to get list of recipes
-function getrecipe() {
+function getRecipe() {
   var url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchInput}=&number=10&ranking=2&apiKey=151232fe2a814bb085ada1bc425abb72`;
 
   $.ajax({
