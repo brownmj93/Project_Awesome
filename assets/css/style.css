@@ -4,6 +4,7 @@ body {
     background-image: url("../images/matthias-heil-lDOEwat_MPs-unsplash.jpg");
     background-repeat: no-repeat;
     background-size: 1300px 1100px ;
+    background-repeat: repeat-y;
 
     /* opacity: .9;  */
     /* margin: 10px; */

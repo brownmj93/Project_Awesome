@@ -11,6 +11,10 @@ console.log('Protein G: ', protein);
 var totalFat = [];
 console.log('Total Fat: ', totalFat);
 
+var chart1;
+var chart2;
+var chart3;
+
 //Save user input into an array
 $("#searchBtn").on("click", function (event) {
   $('#displaySection').empty();
@@ -198,7 +202,7 @@ function nutrition() {
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://trackapi.nutritionix.com/v2/natural/nutrients?x-app-id=4a1eb941&x-app-key=b2d5ab917b068c98f8da06f5987afca8&x-remote-user-id=0&locale=en_US",
+    "url": "https://trackapi.nutritionix.com/v2/natural/nutrients?x-app-id=61864a72&x-app-key=a3523ae316ce94b4543da6fd5809816b&x-remote-user-id=0&locale=en_US",
     "method": "POST",
     "headers": {
       "Content-Type": "application/json",
@@ -303,6 +307,7 @@ function nutrition() {
           }
       }
      });
+     
   });
 
 
