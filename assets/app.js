@@ -82,7 +82,7 @@ $('#displaySection').addClass('recipe-description');
   title.text($(this).text());
   console.log(title);
   
-  var url = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=bc2496f0cbc84ffea77af8212c502219`
+  var url = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=b3fcf015429e47428a927e7614f79023`
 
   $.ajax({
     url: url,
@@ -137,14 +137,19 @@ $('#displaySection').addClass('recipe-description');
       //Alert missing instruction
       $("#missingRecipe").modal();
     }
+
+      //add canvas elements
+
   });
+
+
   //Enable back to results button
   $("#backBtn").removeClass('disabled');
 });
 
 //Calls the API to get list of recipes
 function getRecipe() {
-  var url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchInput}=&number=8&ranking=2&apiKey=151232fe2a814bb085ada1bc425abb72`;
+  var url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchInput}=&number=8&ranking=2&apiKey=b3fcf015429e47428a927e7614f79023`;
 
   $.ajax({
 
@@ -159,7 +164,7 @@ function getRecipe() {
     // var result = $('<h2>');
     // result.text("Results for " + searchInput);
     // result.appendTo('#displaySection');
-
+    $('#searchParameter').html("Results for " +searchInput);
     data.forEach(myFunction);
 
     function myFunction(item) {
@@ -180,7 +185,7 @@ function getRecipe() {
       // append images 
       div.append(img);
   
-      div.appendTo('#displaySection');
+      // div.appendTo('#displaySection');
 
     }
   });
