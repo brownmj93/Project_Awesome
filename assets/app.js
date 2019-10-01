@@ -108,6 +108,7 @@ $('#displaySection').addClass('recipe-description');
       ingredients.appendTo('#displaySection');
     });
 
+
     //Add space between ingredients & instruction
     $('#displaySection').append('<br>');
 
@@ -185,7 +186,7 @@ function getRecipe() {
       // append images 
       div.append(img);
   
-      // div.appendTo('#displaySection');
+      div.appendTo('#displaySection');
 
     }
   });
