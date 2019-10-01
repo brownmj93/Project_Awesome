@@ -34,43 +34,32 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row" id="firstRow">
-            <div class="col-md-8">
-                <div class="page-header">
-                    <h1>
-                        Title
-                    </h1>
+        <div id="main" class="jumbotron jumbotron-fluid text-center">
+                <div class="container">
+                  <h1 class="display-4">Recipe App</h1>
+        
+                  <div id="input" class="input-group mb-3  " >
+                      <input type="text" id="ingredients" class="form-control" placeholder="Enter Ingrident Followed by Comma" aria-label="Recipient's username" aria-describedby="button-addon2" >
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="searchBtn">Submit</button>
+                      </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-            </div>
+        
+                  <p class="lead">Find A Recipe Based off Ingredints in Your Refrigerator</p>
+                  <button id="backBtn" class="btn btn-outline-secondary">Back to List</button>
+                </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="searchSection">
-
-                    <span class="navbar-brand mb-0 h1">Search Ingredients: </span>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="search" aria-label="Search"
-                            id="ingredients">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
-                            id="searchBtn">Search</button>
-                    </form>
-                    <a class="nav-link disabled" href="#" id="backBtn">Back to results</a>
-                    <p id="searchParameter"></p>
-                </nav>
-
-            </div>
-        </div>
+        
+    <div class="container-fluid">
+       
 
         <div class="row" id="resultsRow">
-            <div class="col-md-8" id="displaySection">
+            <div class="col-md-12" id="displaySection">
             </div>
-            <div class="col-md-4" id="nutritionSection">
+            <!-- <div class="col-md-4" id="nutritionSection">
                 Nutrition Values
-                <canvas id="doughnut-chart" width="800" height="450"></canvas>
-            </div>
+                <canvas id="doughnut-chart"></canvas>
+            </div> -->
         </div>
     </div>
 
