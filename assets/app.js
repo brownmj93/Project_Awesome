@@ -66,8 +66,8 @@ $("#backBtn").on("click", function (event) {
   console.log(searchInput);
   // clear the container
   $('#displaySection').empty();
-  $('#displaySection').removeClass('recipe-description');
-  $('#displaySection').addClass('grid-container');
+  //$('#displaySection').removeClass('recipe-description');
+  //$('#displaySection').addClass('grid-container');
   //Disable back to results button
   $("#backBtn").addClass('disabled');
   getRecipe();
