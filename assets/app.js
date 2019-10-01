@@ -62,7 +62,8 @@ $("#backBtn").on("click", function (event) {
   console.log(searchInput);
   // clear the container
   $('#displaySection').empty();
-
+  $('#displaySection').removeClass('recipe-description');
+  $('#displaySection').addClass('grid-container');
   //Disable back to results button
   $("#backBtn").addClass('disabled');
   getRecipe();
@@ -73,10 +74,14 @@ var equipment = [];
 var equipmentArray;
 
 $('#displaySection').on('click', 'div', function () {
+$('#displaySection').removeClass('grid-container');
+$('#displaySection').addClass('recipe-description');
+
   var id = $(this).data('id');
   var title = $('<h2>');
   title.text($(this).text());
   console.log(title);
+  
   var url = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=bc2496f0cbc84ffea77af8212c502219`
 
   $.ajax({
@@ -116,7 +121,7 @@ $('#displaySection').on('click', 'div', function () {
 
         // Display instruction in the display section
         var instruction = $('<p>');
-        instruction.text((index + 1) + " " + e.step);
+        instruction.text( e.step);
         instruction.appendTo('#displaySection');
 
         data.analyzedInstructions[0].steps[0].equipment.forEach(function (e) {
@@ -139,7 +144,7 @@ $('#displaySection').on('click', 'div', function () {
 
 //Calls the API to get list of recipes
 function getRecipe() {
-  var url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchInput}=&number=10&ranking=2&apiKey=151232fe2a814bb085ada1bc425abb72`;
+  var url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${searchInput}=&number=8&ranking=2&apiKey=151232fe2a814bb085ada1bc425abb72`;
 
   $.ajax({
 
@@ -151,9 +156,9 @@ function getRecipe() {
     console.log("recipe Name: " + data[0].title);
     console.log('image: ' + data[0].image);
     console.log(data);
-    var result = $('<h2>');
-    result.text("Results for " + searchInput);
-    result.appendTo('#displaySection');
+    // var result = $('<h2>');
+    // result.text("Results for " + searchInput);
+    // result.appendTo('#displaySection');
 
     data.forEach(myFunction);
 
@@ -161,17 +166,22 @@ function getRecipe() {
       console.log(item.id);
 
       var div = $('<div>');
-      var h3 = $('<h3>');
-      var img = $("<img>");
+      var img = $('<img>');
+      var p = $('<p>');
+      
       img.attr('src', item.image);
-      h3.text(item.title);
+      img.attr('id', 'image');
+      p.html(item.title);
+      
+      div.append(p);
+      div.attr('class',"grid-item")
       div.attr('data-id', item.id);
-      div.addClass("eachRecipe");
-
-      //append images and recipe title
+      
+      // append images 
       div.append(img);
-      div.append(h3);
+  
       div.appendTo('#displaySection');
+
     }
   });
 }
