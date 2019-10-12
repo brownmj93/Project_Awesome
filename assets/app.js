@@ -213,23 +213,6 @@ function nutrition() {
     "data": `{\r\n \"query\":\"${searchInput}\",\r\n \"timezone\": \"US/Eastern\"\r\n}`
   }
 
-
-
-  // function foodList(results) {
-
-  //   for (i = 0; i < results.length; i++) {
-
-  //     pieList = results[i];
-  //     console.log('Search results Array: ', pieList.food_name, 'Serving Size: ', pieList.serving_qty, pieList.serving_unit, 'Calories: ', pieList.nf_calories, 'Fat: ', pieList.nf_total_fat, 'Protein: ', pieList.nf_protein);
-  //     calories.push(pieList.nf_calories);
-  //     foodName.push(pieList.food_name);
-  //     protein.push(pieList.nf_protein);
-  //     totalFat.push(pieList.nf_total_fat);
-  //     totalCarbs.push(pieList.nf_total_carbohydrate);
-
-  //   }
-  // }
-
   $.ajax(settings).done(function (response) {
 
     console.log('RESPONSE: ', response);
