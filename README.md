@@ -1,7 +1,7 @@
 # Project_Awesome
 ## Overview
 
-The goal here was to create an app that solved a particular problem of haveing ingrediants and not knowing what to make for dinner. Entering the ingrediants in the app will give you 10 recipes and nutritional data to help you figure this problem out.
+The goal here was to create an app that solved a particular problem of having ingredients and not knowing what to make for dinner. Entering the ingredients in the app will give you 10 recipes and nutritional data to help you figure this problem out.
 
 ## Getting Started
 
